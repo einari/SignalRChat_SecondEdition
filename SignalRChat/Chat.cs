@@ -23,8 +23,11 @@ namespace SignalRChat
 
         public void Send(string message)
         {
+            Clients.All.addMessage(message);
+
+            /*
             var room = Clients.Caller.currentChatRoom;
-            Clients.Group(room).addMessage(room, message);
+            Clients.Group(room).addMessage(room, message);*/
         }
 
         public override Task OnConnected()
@@ -43,6 +46,3 @@ namespace SignalRChat
         }
     }
 }
-
-
-

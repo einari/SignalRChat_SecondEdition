@@ -9,8 +9,8 @@ public class Startup
 {
     public void Configuration(IAppBuilder app)
     {
-        //app.MapSignalR();
-        app.MapConnection<ChatConnection>("/chat");
+        app.MapSignalR();
+        app.MapSignalR<ChatConnection>("/chat");
     }
 }
 }

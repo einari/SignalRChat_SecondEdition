@@ -3,14 +3,12 @@ $application.controller("index", ["$scope", "chat", function ($scope, chat) {
     $scope.messages = "Connected";
 
     $scope.click = function () {
-        chat.send($scope.message);
+        chat.server.send($scope.message);
     };
 
-    chat.received(function (data) {
+    chat.client.addMessage = function (message) {
         $scope.$apply(function () {
-            $scope.messages = $scope.messages + "\n" + data;
+            $scope.messages = $scope.messages + "\n" + message;
         });
-        
-    });
-
+    };
 }]);
