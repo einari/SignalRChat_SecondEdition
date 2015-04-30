@@ -3,7 +3,14 @@
     var application = angular.module("SignalRChat", ["ng"]);
 
     application.config(["$provide", 
-        function ($provide, $routeProvider, $locationProvider) {
+        function ($provide) {
+            var chatConnection = $.connection("/chat");
+
+            chatConnection.start().done(function () {
+                console.log("Started");
+            });
+
+            $provide.constant("chat", chatConnection);
         }
     ]);
 
@@ -15,12 +22,8 @@
 /*, "ngRoute", "ngAnimate"*/
 
 /*
-var chatConnection = $.connection("/chat");
-chatConnection.start().done(function () {
-    console.log("Started");
-});
 
-$provide.constant("chat", chatConnection);
+
 */
 /*
 setupAndRegisterProxies($provide);
