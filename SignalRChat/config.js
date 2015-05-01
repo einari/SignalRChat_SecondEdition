@@ -1,7 +1,5 @@
 ﻿"use strict";
 (function (global) {
-    var application = angular.module("SignalRChat", ["ng"]);
-
     function registerHubFactory($provide, hubName) {
         $provide.factory(hubName, function () {
             var proxy = $.connection.hub.createHubProxy(hubName);
@@ -30,6 +28,7 @@
         }
     }
 
+    var application = angular.module("SignalRChat", ["ng"]);
     application.config(["$provide", 
         function ($provide) {
             setupAndRegisterProxies($provide);

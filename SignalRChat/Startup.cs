@@ -5,12 +5,12 @@ using Owin;
 
 namespace SignalRChat
 {
-public class Startup
-{
-    public void Configuration(IAppBuilder app)
+    public class Startup
     {
-        app.MapSignalR();
-        app.MapSignalR<ChatConnection>("/chat");
+        public void Configuration(IAppBuilder app)
+        {
+            app.MapSignalR();
+            app.MapSignalR<ChatConnection>("/chat");
+        }
     }
-}
 }
