@@ -24,7 +24,7 @@ namespace SignalRChat
 
         public void Send(string room, string message)
         {
-            Clients.Group(room).addMessage(room, message);
+            Clients.Group(room).addMessage(message);
 
             //Clients.All.addMessage(message);
 
@@ -37,6 +37,8 @@ namespace SignalRChat
         {
             foreach (var room in ChatRooms.GetAll())
                 Clients.Caller.addChatRoom(room);
+
+            Join("Lobby");
 
             System.Console.WriteLine("Connected");
             return base.OnConnected();
