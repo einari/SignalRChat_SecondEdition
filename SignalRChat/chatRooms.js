@@ -11,10 +11,9 @@ $application.controller("chatRooms", ["$scope", "chat", function ($scope, chat) 
 
     $scope.createRoom = function () {
         chat.server.createChatRoom($scope.chatRoom);
-        chat.server.join($scope.chatRoom);
         $scope.currentChatRoom = $scope.chatRoom;
-        $scope.chatRoom = "";
         $scope.$emit("chatRoomChanged", $scope.chatRoom);
+        $scope.chatRoom = "";
     };
 
     chat.client(function (client) {

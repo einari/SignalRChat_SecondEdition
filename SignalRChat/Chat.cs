@@ -19,6 +19,7 @@ namespace SignalRChat
             {
                 ChatRooms.Add(room);
                 Clients.All.addChatRoom(room);
+                Join(room);
             }
         }
 
