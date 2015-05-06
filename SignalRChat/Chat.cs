@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System.Collections.Generic;
+using System.Threading.Tasks;
 using Microsoft.AspNet.SignalR;
 
 namespace SignalRChat
@@ -11,7 +12,7 @@ namespace SignalRChat
             Groups.Add(Context.ConnectionId, room);
         }
 
-        [Authorize(Roles="Creator")]
+        //[Authorize(Roles="Creator")]
         public void CreateChatRoom(string room)
         {
             if (!ChatRooms.Exists(room))
@@ -21,9 +22,11 @@ namespace SignalRChat
             }
         }
 
-        public void Send(string message)
+        public void Send(string room, string message)
         {
-            Clients.All.addMessage(message);
+            Clients.Group(room).addMessage(room, message);
+
+            //Clients.All.addMessage(message);
 
             /*
             var room = Clients.Caller.currentChatRoom;

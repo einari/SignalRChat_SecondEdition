@@ -31,7 +31,9 @@
 
     <div class="container">
         <div class="row">
-            <div class="col-md-4">
+            <div class="col-xs-4" feature="chatRooms">
+            </div>
+            <div class="col-xs-4">
                 <textarea id="chatWindow" style="width:400px; height:200px;" ng-model="messages"></textarea>
 
                 <div class="form-inline">
@@ -41,7 +43,6 @@
                             <input type="text" class="form-control" id="messageTextBox" placeholder="Message" ng-model="message">
                         </div>
                         <button type="submit" class="btn btn-primary" ng-click="click()">Send</button>
-
                     </div>
                 </div>
             </div>
@@ -82,13 +83,14 @@
     -->
 
 
-<script src="Scripts/jquery-1.9.1.min.js" type="text/javascript"></script>
-<script src="Scripts/bootstrap.min.js" type="text/javascript"></script>
-<script src="Scripts/angular.js" type="text/javascript"></script>
-<script src="Scripts/jquery.signalR-2.2.0.min.js"></script>
-<script src="SignalR/Hubs" type="text/javascript"></script>
+    <script src="Scripts/jquery-1.9.1.min.js" type="text/javascript"></script>
+    <script src="Scripts/bootstrap.min.js" type="text/javascript"></script>
+    <script src="Scripts/angular.js" type="text/javascript"></script>
+    <script src="Scripts/jquery.signalR-2.2.0.min.js"></script>
+    <script src="SignalR/Hubs" type="text/javascript"></script>
 
-<script src="config.js" type="text/javascript"></script>
-<script src="index.js" type="text/javascript"></script>
+    <script src="config.js" type="text/javascript"></script>
+    <script src="index.js" type="text/javascript"></script>
+    <script src="chatRooms.js" type="text/javascript"></script>
 </body>
 </html>

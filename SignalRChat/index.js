@@ -1,14 +1,22 @@
 ﻿"use strict";
-$application.controller("index", ["$scope", "chat", function ($scope, chat) {
+$application.controller("index", ["$scope", "chat", "$rootScope", function ($scope, chat, $rootScope) {
+    var currentChatRoom = "Lobby";
+
     $scope.messages = "Connected";
 
     $scope.click = function () {
-        chat.server.send($scope.message);
+        chat.server.send(currentChatRoom, $scope.message);
     };
 
-    chat.client.addMessage = function (message) {
-        $scope.$apply(function () {
-            $scope.messages = $scope.messages + "\n" + message;
-        });
-    };
+    $rootScope.$on("chatRoomChanged", function (args, room) {
+        currentChatRoom = room;
+    });
+
+    chat.client(function (client) {
+        client.addMessage = function (message) {
+            $scope.$apply(function () {
+                $scope.messages = $scope.messages + "\n" + message;
+            });
+        }
+    });
 }]);
