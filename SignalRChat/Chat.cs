@@ -9,6 +9,11 @@ namespace SignalRChat
     {
         public void Join(string room)
         {
+            var currentChatRoom = (string)Clients.Caller.currentChatRoom;
+            if (!string.IsNullOrEmpty(currentChatRoom))
+                Groups.Remove(Context.ConnectionId, currentChatRoom);
+
+            Clients.Caller.currentChatRoom = room;
             Groups.Add(Context.ConnectionId, room);
         }
 
@@ -23,15 +28,10 @@ namespace SignalRChat
             }
         }
 
-        public void Send(string room, string message)
+        public void Send(string message)
         {
+            var room = (string)Clients.Caller.currentChatRoom;
             Clients.Group(room).addMessage(message);
-
-            //Clients.All.addMessage(message);
-
-            /*
-            var room = Clients.Caller.currentChatRoom;
-            Clients.Group(room).addMessage(room, message);*/
         }
 
         public override Task OnConnected()

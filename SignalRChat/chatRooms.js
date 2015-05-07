@@ -1,6 +1,6 @@
 ﻿"use strict";
 $application.controller("chatRooms", ["$scope", "chat", function ($scope, chat) {
-    $scope.currentChatRoom = "Lobby";
+    chat.state.currentChatRoom = $scope.currentChatRoom = "Lobby";
     $scope.chatRoom = "";
     $scope.rooms = [];
 

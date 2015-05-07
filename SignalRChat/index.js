@@ -1,15 +1,14 @@
 ﻿"use strict";
 $application.controller("index", ["$scope", "chat", "$rootScope", function ($scope, chat, $rootScope) {
-    var currentChatRoom = "Lobby";
-
+    $scope.currentChatRoom = "Lobby";
     $scope.messages = "Connected";
 
     $scope.click = function () {
-        chat.server.send(currentChatRoom, $scope.message);
+        chat.server.send($scope.message);
     };
 
     $rootScope.$on("chatRoomChanged", function (args, room) {
-        currentChatRoom = room;
+        $scope.currentChatRoom = room;
     });
 
     chat.client(function (client) {
