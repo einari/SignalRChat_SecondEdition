@@ -4,7 +4,7 @@ using Microsoft.AspNet.SignalR;
 
 namespace SignalRChat
 {
-    //[Authorize(RequireOutgoing=true)]
+    [Authorize(RequireOutgoing=true)]
     public class Chat : Hub
     {
         public void Join(string room)
@@ -17,7 +17,7 @@ namespace SignalRChat
             Groups.Add(Context.ConnectionId, room);
         }
 
-        //[Authorize(Roles="Creator")]
+        [Authorize(Roles="Creator")]
         public void CreateChatRoom(string room)
         {
             if (!ChatRooms.Exists(room))
