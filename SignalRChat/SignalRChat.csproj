@@ -904,6 +904,9 @@
     <Compile Include="Chat.cs" />
     <Compile Include="ChatConnection.cs" />
     <Compile Include="ChatRooms.cs" />
+    <Compile Include="CustomBus.cs" />
+    <Compile Include="CustomBusConfiguration.cs" />
+    <Compile Include="DependencyResolverExtensions.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>

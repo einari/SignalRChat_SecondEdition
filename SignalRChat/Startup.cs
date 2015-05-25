@@ -1,4 +1,5 @@
-﻿using Microsoft.Owin;
+﻿using Microsoft.AspNet.SignalR;
+using Microsoft.Owin;
 using Owin;
 
 [assembly: OwinStartup(typeof(SignalRChat.Startup))]
@@ -11,6 +12,8 @@ namespace SignalRChat
         {
             app.MapSignalR();
             app.MapSignalR<ChatConnection>("/chat");
+
+            GlobalHost.DependencyResolver.UseCustom();
         }
     }
 }
