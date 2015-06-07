@@ -14,7 +14,7 @@
         <StackPanel Orientation="Vertical" Margin="8">
             <Label>UserName</Label>
             <TextBox Text="{Binding UserName}"></TextBox>
-            <Label>LastName</Label>
+            <Label>Password</Label>
             <PasswordBox x:Name="password" 
                          local:PasswordHelper.BindablePasswordEnabled="true"
                          local:PasswordHelper.BindablePassword="{Binding Password}"
