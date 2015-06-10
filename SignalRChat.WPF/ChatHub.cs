@@ -5,23 +5,19 @@ using Microsoft.AspNet.SignalR.Client;
 
 namespace SignalRChat.WPF
 {
-    [Singleton]
-    public class ChatHub : IChatHub
-    {
+[Singleton]
+public class ChatHub : IChatHub
+{
         const string Site = "http://localhost:3705";
 
         public event Action<StateChange> StateChanged = (state) => { };
-
         public event Action<string> JoinedRoom = (room) => { };
-
         public event Action<string> RoomAdded = (room) => { };
-
         public event Action<string> MessageReceived = (message) => { };
 
-        ISecurity _security;
         HubConnection _hubConnection;
+        ISecurity _security;
         IHubProxy _chatProxy;
-
 
         public ChatHub(IMessenger messenger, ISecurity security)
         {

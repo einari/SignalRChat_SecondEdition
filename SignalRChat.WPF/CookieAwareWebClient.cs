@@ -14,6 +14,5 @@ namespace SignalRChat.WPF
                 ((HttpWebRequest)request).CookieContainer = CookieContainer;
             return request;
         }
-
     }
 }

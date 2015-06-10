@@ -25,7 +25,6 @@
             <ListView Grid.Row="1" 
                       ItemsSource="{Binding Rooms}" 
                       SelectedItem="{Binding CurrentRoom}">
-                
             </ListView>
         </Grid>
         

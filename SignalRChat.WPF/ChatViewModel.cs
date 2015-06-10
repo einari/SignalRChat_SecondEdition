@@ -32,7 +32,6 @@ namespace SignalRChat.WPF
         }
 
         public string CurrentRoom { get; private set; }
-
         public string CurrentState { get; private set; }
 
         public ObservableCollection<string> Messages { get; private set; }

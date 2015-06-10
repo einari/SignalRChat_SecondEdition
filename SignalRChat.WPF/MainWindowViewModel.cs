@@ -1,5 +1,4 @@
 ﻿using Bifrost.Messaging;
-using Bifrost.Values;
 using PropertyChanged;
 
 namespace SignalRChat.WPF
@@ -13,6 +12,5 @@ namespace SignalRChat.WPF
         }
 
         public bool LoggedIn { get; private set; }
-
     }
 }

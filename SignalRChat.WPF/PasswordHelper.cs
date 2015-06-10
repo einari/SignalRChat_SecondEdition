@@ -59,7 +59,5 @@ namespace SignalRChat.WPF
         {
             passwordBox.Password = password;
         }
-
-        
     }
 }

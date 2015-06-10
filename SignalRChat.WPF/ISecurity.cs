@@ -1,5 +1,5 @@
-﻿
-using System.Net;
+﻿using System.Net;
+
 namespace SignalRChat.WPF
 {
     public interface ISecurity
