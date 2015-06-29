@@ -1,14 +1,12 @@
 ﻿using System;
-using Bifrost.Execution;
-using Bifrost.Messaging;
 using Microsoft.AspNet.SignalR.Client;
+using Microsoft.AspNet.SignalR.Client.Transports;
 
-namespace SignalRChat.WPF
+namespace SignalRChat.Mobile
 {
-    [Singleton]
     public class ChatHub : IChatHub
     {
-        const string Site = "http://localhost:3705";
+        const string Site = "http://10.211.55.4:3705";
 
         public event Action<StateChange> StateChanged = (state) => { };
         public event Action<string> JoinedRoom = (room) => { };
@@ -28,6 +26,7 @@ namespace SignalRChat.WPF
         void LoggedIn(LoggedIn loggedIn)
         {
             _hubConnection = new HubConnection(Site);
+            
             _hubConnection.CookieContainer = _security.CookieContainer;
             _hubConnection.StateChanged += (s) => StateChanged(s);
 

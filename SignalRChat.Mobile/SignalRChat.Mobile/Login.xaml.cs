@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
+﻿
 using Xamarin.Forms;
 
 namespace SignalRChat.Mobile
@@ -13,11 +8,11 @@ namespace SignalRChat.Mobile
         public Login()
         {
             InitializeComponent();
-        }
 
-        void LoginClicked(object sender, EventArgs e)
-        {
-            Navigation.PushModalAsync(new NavigationPage(new ChatRooms()));
+            var security = App.Container.GetInstance<ISecurity>();
+            var messenger = App.Container.GetInstance<IMessenger>();
+            var viewModel = new LoginViewModel(Navigation, security, messenger);
+            BindingContext = viewModel;
         }
     }
 }

@@ -6,9 +6,16 @@
   <StackLayout Orientation="Vertical" Padding="8">
 
     <StackLayout Orientation="Horizontal">
-      <Entry Keyboard="Text" Placeholder="Enter message" HorizontalOptions="FillAndExpand"/>
-      <Button Text="Send" HorizontalOptions="End"/>
+      <Entry Keyboard="Text" Placeholder="Enter message" HorizontalOptions="FillAndExpand" Text="{Binding Message, Mode=TwoWay}"/>
+      <Button Command="{Binding SendCommand}" Text="Send" HorizontalOptions="End"/>
     </StackLayout>
-    <TableView></TableView>
+
+    <ListView ItemsSource="{Binding Messages}">
+      <ListView.ItemTemplate>
+        <DataTemplate>
+          <TextCell Text="{Binding}"/>
+        </DataTemplate>
+      </ListView.ItemTemplate>
+    </ListView>
   </StackLayout>
 </ContentPage>

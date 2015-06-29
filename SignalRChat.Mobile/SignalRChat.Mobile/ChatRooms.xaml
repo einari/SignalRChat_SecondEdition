@@ -5,7 +5,7 @@
              x:Class="SignalRChat.Mobile.ChatRooms" 
              Title="Rooms">
 
-  <ListView ItemsSource="{Binding Rooms}" SelectedItem="{Binding SelectedRoom, Mode=TwoWay}">
+  <ListView ItemsSource="{Binding Rooms}" SelectedItem="{Binding CurrentRoom, Mode=TwoWay}">
     <ListView.ItemTemplate>
       <DataTemplate>
         <TextCell Text="{Binding}"/>

@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
+﻿
+using SimpleInjector;
 using Xamarin.Forms;
 
 namespace SignalRChat.Mobile
@@ -14,7 +10,7 @@ namespace SignalRChat.Mobile
         {
             InitializeComponent();
 
-            BindingContext = new ChatRoomsViewModel(Navigation);
+            BindingContext = App.Container.GetInstance<ChatRoomsViewModel>();
         }
     }
 }

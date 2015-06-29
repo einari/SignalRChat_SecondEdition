@@ -6,24 +6,23 @@ namespace SignalRChat.Mobile
 {
     public class ChatRoomsViewModel
     {
-        string _selectedRoom;
+        string _currentRoom;
         INavigation _navigation;
 
-        public ChatRoomsViewModel(INavigation navigation)
+        public ChatRoomsViewModel(INavigation navigation, IChatHub chatHub)
         {
             _navigation = navigation;
             Rooms = new ObservableCollection<string>();
 
-            Rooms.Add("Test");
-            Rooms.Add("Test2");
+            chatHub.RoomAdded += (room) => Device.BeginInvokeOnMainThread(() => Rooms.Add(room));
         }
 
-        public string SelectedRoom 
+        public string CurrentRoom 
         {
-            get { return _selectedRoom; }
+            get { return _currentRoom; }
             set
             {
-                _selectedRoom = value;
+                _currentRoom = value;
                 _navigation.PushAsync(new Chat(value));
             }
         }
