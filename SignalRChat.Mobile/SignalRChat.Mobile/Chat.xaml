@@ -6,8 +6,8 @@
   <StackLayout Orientation="Vertical" Padding="8">
 
     <StackLayout Orientation="Horizontal">
-      <Entry Keyboard="Text" Placeholder="Enter message" HorizontalOptions="FillAndExpand" Text="{Binding Message, Mode=TwoWay}"/>
-      <Button Command="{Binding SendCommand}" Text="Send" HorizontalOptions="End"/>
+      <Entry x:Name="room" Keyboard="Text" Placeholder="Enter message" HorizontalOptions="FillAndExpand" Text="{Binding Room, Mode=TwoWay}"/>
+      <Button Command="{Binding SendCommand}" Text="Join" HorizontalOptions="End"/>
     </StackLayout>
 
     <ListView ItemsSource="{Binding Messages}">
