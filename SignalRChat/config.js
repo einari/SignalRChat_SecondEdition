@@ -2,7 +2,7 @@
 (function (global) {
     function makeClientProxyFunction(callback) {
         return function () {
-            callback.apply(self, arguments);
+            callback.apply(this, arguments);
         };
     }
 
