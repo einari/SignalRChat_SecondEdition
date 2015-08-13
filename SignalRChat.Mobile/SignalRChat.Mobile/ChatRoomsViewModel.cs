@@ -28,6 +28,7 @@ namespace SignalRChat.Mobile
             set
             {
                 _currentRoom = value;
+                _chatHub.Join(value);
                 _navigation.PushAsync(new Chat(value));
             }
         }
